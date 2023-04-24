@@ -27,6 +27,3 @@ This is a simple two-player game built with Java on a TCP connection. The game g
 
 ## Authors
 * Timothy Borghouts
-
-## License
-This project is licensed under the MIT License.
