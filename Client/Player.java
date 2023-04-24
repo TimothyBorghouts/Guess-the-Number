@@ -4,19 +4,26 @@ import java.net.*;
 import java.util.Scanner;
 import java.io.*;
 
-public class Player2 {
+public class Player {
 
     public static void main(String[] args) {
-        String serverName = "localhost";
-        int port = 1112;
+        Scanner scanner = new Scanner(System.in);
 
-        startGame(serverName, port);
+        //1. Player gives their Ip.
+        System.out.print("Give your Ip adress: ");
+        String ipAdress = scanner.nextLine();
+
+        //2. Player gives the port they want to connect on.
+        System.out.print("Give a port on which you want to play: ");
+        int port = Integer.parseInt(scanner.nextLine());
+
+        startGame(ipAdress, port, scanner);
     }
 
-    public static void startGame(String serverName, int port){
-        Scanner scanner = new Scanner(System.in);
+    public static void startGame(String ipAdress, int port, Scanner scanner){
+        
         try {
-            Socket clientSocket = new Socket(serverName, port);
+            Socket clientSocket = new Socket(ipAdress, port);
             System.out.println("Connected to the GameServer on port " + port + ".");
 
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
